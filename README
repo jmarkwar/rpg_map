@@ -1,0 +1,7 @@
+RPG_MAP will be a tech demo that may eventually do something useful.
+
+Idea is to learn node.js, redis, and mongo db and use them with client side js, css to develop an interactive map that will allow several users to interact with each other.  
+
+Main Features:
+  role based permissions:  GM and players will be able to do different things on the map.  ie players will only be able to move their character and pets, gm will be able to move anything
+  automatic updates:  when an item on the map is moved all clients will update immediately to show the new positions
