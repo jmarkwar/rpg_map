@@ -1,7 +1,9 @@
 var app = require('express').createServer();
 var io = require('socket.io').listen(app);
 
-app.listen(process.env.C9_PORT);
+var port = process.env.C9_PORT || 80
+
+app.listen(port);
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
