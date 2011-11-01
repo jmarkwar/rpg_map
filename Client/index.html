@@ -1,13 +1,7 @@
 <html>
 <head>
 <script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io.connect('http://rpg_map.jmarkwar.cloud9ide.com');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
-  });
-</script>
+<script src="/js/GridClient.js"></script>
 </head>
 
 <body>
