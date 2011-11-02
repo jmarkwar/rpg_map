@@ -1,7 +1,7 @@
 var app = require('express').createServer(),
     io = require('socket.io').listen(app);
 
-var port = process.env.PORT; // || 80;
+var port = process.env.PORT || 80;
 
 app.listen(port);
 
