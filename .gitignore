@@ -1,1 +1,10 @@
 node_modules
+.profile
+.bash_history
+.githistory
+.bashrc
+.gitconfig
+.node_modules
+.bash_logout
+.node_libraries
+
