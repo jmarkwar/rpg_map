@@ -13,5 +13,10 @@ io.sockets.on('connection', function (socket) {
   socket.emit('Welcome', 'Welcome!'); 
   socket.on('NewPlayer', function (player) {
     console.log(player);
+    socket.broadcast.emit('NewPlayer',player);
+  });
+  socket.on('PlayerLeft',function (player) {
+      console.log(player);
+      socket.broadcast.emit('PlayerLeft',player);
   });
 });
