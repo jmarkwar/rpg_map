@@ -21,14 +21,13 @@ io.sockets.on('connection', function (socket) {
 
 //setup redis
 
-var dbuser='redistogo';
 var dbpass='f1950093dd1b22206143b59f0592211c';
 var dbhost='viperfish.redistogo.com';
 var dbport='9694';
 
 var redis = require('redis');
 var db = redis.createClient(dbport,dbhost);
-db.auth(dbuser,dbpass);
+db.auth(dbpass);
 
 
 
