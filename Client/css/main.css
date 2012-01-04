@@ -1,0 +1,7 @@
+div#playerList { float: left; }
+
+div#channelList { float: left; background-color: #ececeb; }
+div#channelList ul li {list-style: none; cursor: pointer;}
+div#channelList ul li:hover { color: blue; }
+
+div#log { float:left;  }
