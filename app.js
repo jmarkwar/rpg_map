@@ -13,7 +13,7 @@ var dbport='9694';
 var redis = require('redis');
 var publisher = redis.createClient(dbport,dbhost);
     publisher.auth(dbpass);
-
+var players = {};
 //setup socket.io
 var io = require('socket.io').listen(app);
 io.sockets.on('connection', function (socket) {
@@ -41,7 +41,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('PlayerJoined',function (player){
         console.log(player);
         dbclient.subscribe(player.channel);
+        
         socket.broadcast.emit('NewPlayer',player);
+        socket.emit('Welcome',players[player.channel]);
+        players[player.channel].push(player.player);
         
     });
     
