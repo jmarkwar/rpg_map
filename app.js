@@ -1,4 +1,4 @@
-//setup express
+//setup express to serve static content
 var express = require('express');
 var port = process.env.PORT || 80;
 var app = express.createServer();
@@ -43,8 +43,14 @@ io.sockets.on('connection', function (socket) {
         dbclient.subscribe(player.channel);
         
         socket.broadcast.emit('NewPlayer',player);
-        socket.emit('Welcome',players[player.channel]);
+        
+        if(players[player.channel] === undefined){
+           players[player.channel] = [];
+        } else {
+             socket.emit('Welcome',players[player.channel]);
+        }       
         players[player.channel].push(player.player);
+        
         
     });
     
