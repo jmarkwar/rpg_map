@@ -1,7 +1,7 @@
-div#playerList { float: left; }
+.playerList { float: left; }
 
-div#channelList { float: left; background-color: #ececeb; }
-div#channelList ul li {list-style: none; cursor: pointer;}
-div#channelList ul li:hover { color: blue; }
+.chatWindow { float: left; background-color: #ececeb; }
+.players ul li {list-style: none; cursor: pointer;}
+.players ul li:hover { color: blue; }
 
-div#log { float:left;  }
+.log { float:left;  }

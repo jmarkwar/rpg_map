@@ -1,9 +1,12 @@
 function init() {
-    var client = new ChatClient('Default');
     
-    $('.JoinButton').click(client.Join);
-    $('.LeaveButton').click(client.Leave);
-    $('.CreateChannel').click(client.createChannel);
+    $('.JoinButton').click( function () {
+        var me = new player($('[name = "Name"]').val());
+        var client = new ChatClient(me);
+        client.Join('Default');
+        $('[name="signon"]').hide();
+    });
+    
 }
 
 
