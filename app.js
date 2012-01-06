@@ -47,7 +47,7 @@ io.sockets.on('connection', function (socket) {
         if(players[player.channel] === undefined){
            players[player.channel] = [];
         } else {
-             socket.emit('Welcome',players[player.channel]);
+             socket.emit('Welcome',{channel: player.channel, list: players[player.channel]});
         }       
         players[player.channel].push(player.player);
         
