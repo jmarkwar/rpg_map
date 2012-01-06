@@ -27,7 +27,7 @@ function ChatWindow(channelName,chatClient) {
     self._players = {};
     
     self._chatWindow = $('<div class="ChatWindow"></div>');
-    self._chatLogContainer = $('<div class="Log">Chat Log:<br /></div>');
+    self._chatLogContainer = $('<div class="Log">Chat Channel:' + self._channel + '<br /></div>');
     self._chatLogWindow = $('<div class="LogMessages"</div>');
     self._chatLogContainer.append(self._chatLogWindow);
     self._chatWindow.append(self._chatLogContainer);
@@ -93,8 +93,8 @@ function ChatClient(player) {
     self._me = player;
     self._channels = [];
     self._windows = {};
-//    self._socket = io.connect('http://freezing-light-6313.herokuapp.com/');
-    self._socket = io.connect('http://rpg_map.jmarkwar.c9.io');
+    self._socket = io.connect('http://freezing-light-6313.herokuapp.com/');
+    //self._socket = io.connect('http://rpg_map.jmarkwar.c9.io');
     
     //events recieved
     self._socket.on('NewPlayer',function(player) {
