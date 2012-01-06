@@ -1,9 +1,7 @@
-//class message -- message passed between chat clients
-
-
-
+//class chatMessage -- encapsulates message data passed between chat clients
 function chatMessage(channel,message,player) {
     var self= this;
+    
     self.message = message;
     self.channel = channel;
     self.player = player;
@@ -11,6 +9,7 @@ function chatMessage(channel,message,player) {
     return true;
 }
 
+//class NewPlayerEvent -- encapsulates data needed to process a new player event
 function NewPlayerEvent(channel,player) {
     var self=this;
     
@@ -20,23 +19,27 @@ function NewPlayerEvent(channel,player) {
     return true;
 }
 
+//class ChatWindow -- encapsulates the data and methods required to display chat messages and notifications, and to process the user events generated for a specific chat channel
 function ChatWindow(channelName,chatClient) {
     var self= this;
+    
     self._channel = channelName;
     self._client = chatClient;
     self._players = {};
     
+    //set up the main chat area
     self._chatWindow = $('<div class="ChatWindow"></div>');
+    //setup the chat log area
     self._chatLogContainer = $('<div class="Log">Chat Channel:' + self._channel + '<br /></div>');
     self._chatLogWindow = $('<div class="LogMessages"</div>');
     self._chatLogContainer.append(self._chatLogWindow);
     self._chatWindow.append(self._chatLogContainer);
-    
+    //setup the player list 
     self._chatPlayerListWindow = $('<div class="Players">Current players:</div>');
     self._chatPlayerList = $('<ul></ul>');
     self._chatPlayerListWindow.append(self._chatPlayerList);
     self._chatWindow.append(self._chatPlayerListWindow);
-    
+    //setup the chat input line
     self._chatInputArea = $('<div class="chatInput"></div>');
     self._chatInput = $('<input name="messageText"></input>');
     self._chatInput.keyup(function (e) {
@@ -50,23 +53,27 @@ function ChatWindow(channelName,chatClient) {
     self._chatInputArea.append(self._chatInput);
     self._chatInputArea.append(self._chatSaySomethingButton);
     self._chatLogContainer.append(self._chatInputArea);
-       
+    
+    //process the new player event
     self.NewPlayer = function (player) {
         self._players[player] = player;
         self._chatLogWindow.append( player + " has joined the fun<br />");
         self._chatPlayerList.append('<li name=' + player + '>' + player + '</li>');
     };
     
+    //process the remove player event
     self.RemovePlayer = function (player) {
         self._players[player] = null;
         self._chatPlayerList.find('[name="' + player +'"]').remove();
     };
     
+    //process the new chat message event
     self.NewMessage = function (message) {
         self._chatLogWindow.append(message.player + ": " + message.message + "<br/>");
         self._chatLogWindow.prop({ scrollTop: self._chatLogWindow.prop("scrollHeight") });
     };
     
+    //send a new chat message 
     self.sendMessage = function (messageText) {
         if (messageText === undefined){
             messageText = self._chatInput.val();
@@ -76,20 +83,23 @@ function ChatWindow(channelName,chatClient) {
         self._chatInput.val("");
     };
     
+    //process the welcome event when joining a channel
     self.Welcome = function (playerlist) {
         for (var i=0;i< playerlist.length;i++)  {
             self._chatPlayerList.append('<li name=' + playerlist[i] + '>' + playerlist[i] + '</li>');
         }
     };
     
+    //add the chat window to the DOM, and make sure the current player is in the player list
     self.NewPlayer(self._client._me.name());
     $('body').append(self._chatWindow);
     return true;   
 }
 
-// Class ChatClient -- client used to chat with other players
+// Class ChatClient -- encapsulates the data and functions required to communicate with the chat server
 function ChatClient(player) {
     var self = this;
+    
     self._me = player;
     self._channels = [];
     self._windows = {};
@@ -116,10 +126,12 @@ function ChatClient(player) {
     });
     
     //events sent
+    //--not implemented
     self.Leave = function () {
        self._socket.emit('PlayerLeft',self._me);
     };
     
+    //--not implemented
     self.Invite = function (player) {
         self._socket.emit('InvitePlayer',player);
     };
@@ -130,11 +142,11 @@ function ChatClient(player) {
         self._windows[channelName] = new ChatWindow(channelName,self);
         self._socket.emit('PlayerJoined',player);
     };
-    
+    //--not implemented
     self.CreateChannel = function (channelName) {
         self._socket.emit('CreateChannel',channelName);
     };
-    
+    //--not implemented
     self.DestroyChannel = function (channelName) {
         self._socket.emit('DestroyChannel',channelName);
     };
