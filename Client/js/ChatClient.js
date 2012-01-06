@@ -27,21 +27,29 @@ function ChatWindow(channelName,chatClient) {
     self._players = {};
     
     self._chatWindow = $('<div class="ChatWindow"></div>');
-    self._chatLogWindow = $('<div class="Log">Chat Log:<br /></div>');
-    self._chatWindow.append(self._chatLogWindow);
+    self._chatLogContainer = $('<div class="Log">Chat Log:<br /></div>');
+    self._chatLogWindow = $('<div class="LogMessages"</div>');
+    self._chatLogContainer.append(self._chatLogWindow);
+    self._chatWindow.append(self._chatLogContainer);
     
-    self._chatPlayerListWindow = $('<div class="Players">Current players:<br /></div>');
+    self._chatPlayerListWindow = $('<div class="Players">Current players:</div>');
     self._chatPlayerList = $('<ul></ul>');
     self._chatPlayerListWindow.append(self._chatPlayerList);
     self._chatWindow.append(self._chatPlayerListWindow);
     
+    self._chatInputArea = $('<div class="chatInput"></div>');
     self._chatInput = $('<input name="messageText"></input>');
-    self._chatSaySomethingButton = $('<input type="button" value="Say Something" class="ChatButton"></input>');
-    self._chatSaySomethingButton.click(function(){self.sendMessage(self._chatInput.val());
-                                                  self._chatInput.val("");
+    self._chatInput.keyup(function (e) {
+        if(e.which == 13)
+        {
+            self.sendMessage();
+        }
     });
-    self._chatWindow.append(self._chatInput);
-    self._chatWindow.append(self._chatSaySomethingButton);
+    self._chatSaySomethingButton = $('<input type="button" value="Say Something" class="ChatButton"></input>');
+    self._chatSaySomethingButton.click(function(){self.sendMessage();});
+    self._chatInputArea.append(self._chatInput);
+    self._chatInputArea.append(self._chatSaySomethingButton);
+    self._chatLogContainer.append(self._chatInputArea);
        
     self.NewPlayer = function (player) {
         self._players[player] = player;
@@ -56,11 +64,16 @@ function ChatWindow(channelName,chatClient) {
     
     self.NewMessage = function (message) {
         self._chatLogWindow.append(message.player + ": " + message.message + "<br/>");
+        self._chatLogWindow.prop({ scrollTop: self._chatLogWindow.prop("scrollHeight") });
     };
     
     self.sendMessage = function (messageText) {
+        if (messageText === undefined){
+            messageText = self._chatInput.val();
+        }
         var message = new chatMessage(self._channel,messageText);
-        self._client.SendMessage(message);        
+        self._client.SendMessage(message); 
+        self._chatInput.val("");
     };
     
     self.Welcome = function (playerlist) {
@@ -80,8 +93,8 @@ function ChatClient(player) {
     self._me = player;
     self._channels = [];
     self._windows = {};
-    self._socket = io.connect('http://freezing-light-6313.herokuapp.com/');
-//    self._socket = io.connect('http://rpg_map.jmarkwar.c9.io');
+//    self._socket = io.connect('http://freezing-light-6313.herokuapp.com/');
+    self._socket = io.connect('http://rpg_map.jmarkwar.c9.io');
     
     //events recieved
     self._socket.on('NewPlayer',function(player) {

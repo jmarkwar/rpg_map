@@ -1,7 +1,8 @@
-.playerList { float: left; }
+.chatWindow { float: left; background-color: #ececeb; border: 1px solid black; padding:1px;}
 
-.chatWindow { float: left; background-color: #ececeb; }
-.players ul li {list-style: none; cursor: pointer;}
+.Log {float:left; padding:1px;}
+.LogMessages { float:none; width:300px; height:200px; overflow: auto; border: 2px inset ; background-color: white; padding:1px; margin: none;}
+
+.players { float: left; width:100px; height:200px; overflow: auto; }
+.players ul li {list-style: none; cursor: pointer; padding:1px;}
 .players ul li:hover { color: blue; }
-
-.log { float:left;  }
