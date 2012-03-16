@@ -1,4 +1,5 @@
 RPG_MAP will be a tech demo that may eventually do something useful.
+x
 
 Idea is to learn node.js, redis, and mongo db and use them with client side js, css to develop an interactive map that will allow several users to interact with each other.  
 
