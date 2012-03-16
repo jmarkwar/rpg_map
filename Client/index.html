@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/main.css" />
         <link rel="stylesheet" type="text/css" href="css/dropdown.css" />
+        <link rel="stylesheet" type="text/css" href="css/chat.css" />
         <title>RPG Map demo</title>
         <meta charset="utf-8" />
         <meta name="description" content="A simple tech demo for playing with node.js, redis, css3, html5, and maybe some mongo db" />
@@ -10,6 +11,7 @@
     </head>  
     <body>
         <header>
+            <img src="images/d20-transparent.png" width="43" height="48">
             <h1>RPG Map</h1>
             <nav>
                 <ul class="menu">
@@ -20,11 +22,20 @@
             </nav>
         </header>
         <section id="main">
-            <form name="signon">
-                <label for="Name">Name:</label>
-                <input name="Name"></input>
-                <input type="button" value="Join" class="JoinButton"></input>
-            </form>
+            <aside id="playerList">
+
+            </aside>
+            <div id="SignOn">
+                <form name="signon">
+                    <label for="Name">Name:</label>
+                    <input name="Name"></input>
+                    <input type="button" value="Join" class="JoinButton"></input>
+                </form>
+            </div>
+            
+        </section>
+        <section id="chat">
+        
         </section>
         <footer>
             Copyright &copy; 2012 

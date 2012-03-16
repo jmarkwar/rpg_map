@@ -31,8 +31,9 @@ function ChatWindow(channelName,chatClient) {
     self._chatWindow = $('<div class="ChatWindow"></div>');
     //setup the chat log area
     self._chatLogContainer = $('<div class="Log">Chat Channel:' + self._channel + '<br /></div>');
-    self._chatLogWindow = $('<div class="LogMessages"</div>');
-    self._chatLogContainer.append(self._chatLogWindow);
+    self._chatLogContainer.append('<div class="LogMessages"></div>');
+    self._chatLogWindow = $('<div></div>');
+    self._chatLogContainer.find('.LogMessages').append(self._chatLogWindow);
     self._chatWindow.append(self._chatLogContainer);
     //setup the player list 
     self._chatPlayerListWindow = $('<div class="Players">Current players:</div>');
@@ -92,7 +93,7 @@ function ChatWindow(channelName,chatClient) {
     
     //add the chat window to the DOM, and make sure the current player is in the player list
     self.NewPlayer(self._client._me.name());
-    $('body').append(self._chatWindow);
+    $('#chat').append(self._chatWindow);
     return true;   
 }
 

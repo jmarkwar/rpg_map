@@ -1,57 +1,3 @@
-.chatWindow 
-{ 
-    float: left; 
-    background-color: #ececeb; 
-    border: 1px solid black; 
-    padding:1px;
-}
-
-.Log 
-{
-    float:left; 
-    padding:1px;
-}
-
-.LogMessages 
-{ 
-    float:none; 
-    width:300px; 
-    height:200px; 
-    overflow: auto; 
-    border: 2px inset; 
-    background-color: white; 
-    padding:1px; 
-    margin: none;
-}
-
-.players 
-{ 
-    float: left; 
-    width:100px; 
-    height:200px; 
-    overflow: auto;
-}
-
-.players ul li 
-{
-    list-style: none; 
-    cursor: pointer; 
-    padding:1px;
-}
-
-.players ul li:hover 
-{ 
-    color: blue; 
-}
-
-footer
-{
-    height: 5%;
-    width: 100%;
-    color: #70625A;
-    text-align: center;
-    font-size: small;
-}
 
 header
 {
@@ -59,30 +5,65 @@ header
     height: 5%;
 }
 
-header h1 
+h1 
 {
-    font-family: arial;
     color: #2E2E2E;
+    font: bold 24px/48px Arial, Helvetica;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #000;
+}
+
+header img
+{
+    float:left;    
 }
 
 body 
 {
+    position: relative;
+    width:99%;
+    height: 100%;
+    font: 12px Arial,Sans-Serif;
+    padding: 0;
+    margin: 10px;
     background: -moz-linear-gradient(#fff, #eee);
     background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #eee),color-stop(1, #fff));
     background: -webkit-linear-gradient(#fff, #eee);
     background: -o-linear-gradient(#fff, #eee);
     background: -ms-linear-gradient(#fff, #eee);
-    background: linear-gradient(#fff, #eee);
+    background: linear-gradient(#fff, #eee);    
+    
+}
+
+section
+{
+    padding: 10px;
+    margin: 10px;
+}
+
+section aside
+{
+    border: 1px solid black;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     -moz-box-shadow: 0 2px 1px #9c9c9c;
     -webkit-box-shadow: 0 2px 1px #9c9c9c;
-    box-shadow: 0 2px 1px #9c9c9c;    
+    box-shadow: 0 2px 1px #9c9c9c;
+    padding: 5px;
+    float:left;    
 }
 
-section#main
-{
+footer
+{      
     width: 100%;
-    height: 1000px;
+    color: #70625A;
+    text-align: center;
+    font-size: x-small;
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
 }
+

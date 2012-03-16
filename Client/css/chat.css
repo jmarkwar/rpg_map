@@ -1,0 +1,49 @@
+
+.Log 
+{
+    float:left; 
+    padding:1px;
+}
+
+.LogMessages 
+{ 
+    float:none;  
+    border: 2px inset; 
+    background-color: white; 
+    padding:1px; 
+    margin: none;
+}
+
+.LogMessages div
+{
+    width:500px; 
+    height:100px; 
+    overflow: auto;
+}
+
+.Players 
+{ 
+    float: left; 
+    width:100px; 
+    height:100px; 
+    overflow: auto;
+}
+
+.Players ul li 
+{
+    list-style: none; 
+    cursor: pointer; 
+    padding:1px;
+}
+
+.players ul li:hover 
+{ 
+    color: blue; 
+}
+
+.ChatWindow
+{
+    float:left;
+    border: 1px solid #9c9c9c
+}
+
