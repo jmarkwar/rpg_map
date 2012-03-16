@@ -3,20 +3,37 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/main.css" />
         <link rel="stylesheet" type="text/css" href="css/dropdown.css" />
+        <title>RPG Map demo</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="A simple tech demo for playing with node.js, redis, css3, html5, and maybe some mongo db" />
+        <meta name="author" content="Joe Markwardt" />
+    </head>  
+    <body>
+        <header>
+            <h1>RPG Map</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="main">
+            <form name="signon">
+                <label for="Name">Name:</label>
+                <input name="Name"></input>
+                <input type="button" value="Join" class="JoinButton"></input>
+            </form>
+        </section>
+        <footer>
+            Copyright &copy; 2012 
+        </footer>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
         <script src="http://rpg_map.jmarkwar.c9.io/socket.io/socket.io.js" type="text/javascript"></script>
         <script src="js/ChatClient.js" type="text/javascript"></script>
         <script src="js/Player.js" type="text/javascript"></script>
         <script src="js/demo.js" type="text/javascript"></script>
-    </head>  
-    <body>
-	<h1>Super awesome stuff</h1>
-        <form name="signon">
-            <label for="Name">Name:</label>
-            <input name="Name"></input>
-            <input type="button" value="Join" class="JoinButton"></input>
-        </form>
-
     </body>
 </html>

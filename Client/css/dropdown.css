@@ -1,7 +1,7 @@
 /* Main */
-.menu
+nav ul
 {
-        width: 125px;
+        width: 100%;
         margin: 0;
         padding: 10px 0 0 0;
         list-style: none;
@@ -20,16 +20,16 @@
         box-shadow: 0 2px 1px #9c9c9c; 
 }
 
-.menu li
+nav ul li
 {
-        float: none;
+        float: left;
         padding: 0 0 10px 0;
         position: relative;
 }
 
-.menu a
+nav ul a
 {
-        float: none;
+        float: left;
         height: 25px;
         padding: 0 25px;
         color: #999;
@@ -39,28 +39,27 @@
         text-shadow: 0 1px 0 #000;
 }
 
-.menu li:hover > a
+nav ul li:hover > a
 {
         color: #fafafa;
 }
 
-.menu li:hover > ul
+nav ul li:hover > ul
 {
         display: block;
 }
 
 /* Sub-menu */
 
-.menu ul
-{
-    
+nav ul ul
+{    
     list-style: none;
     margin: 0;
     padding: 0;
     display: none;
     position: absolute;
-    top: 0;
-    left: 125px;
+    top: 35px;
+    left: 0px;
     z-index: 99999;
     background: #444;
     background: -moz-linear-gradient(#444, #111);
@@ -74,7 +73,7 @@
     border-radius: 5px;
 }
 
-.menu ul li
+nav ul ul li
 {
     float: none;
     margin: 0;
@@ -85,14 +84,14 @@
     box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
 }
 
-.menu ul li:last-child
+nav ul ul li:last-child
 {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 
-.menu ul a
+nav ul ul a
 {
     padding: 10px;
     height: auto;
@@ -102,7 +101,7 @@
     float: none;
     text-transform: none;
 }
-.menu ul a:hover
+nav ul ul a:hover
 {
     background: #0186ba;
     background: -moz-linear-gradient(#04acec,  #0186ba);
@@ -113,33 +112,33 @@
     background: linear-gradient(#04acec,  #0186ba);
 }
 
-.menu ul li:first-child a
+nav ul ul li:first-child a
 {
     -moz-border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
 }
 
-.menu ul li:first-child a:after
+nav ul ul li:first-child a:after
 {
     content: '';
     position: absolute;
-    left: -8px;
-    top: 7px;
+    left: 30px;
+    top: -8px;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
-    border-right: 0px solid transparent;
+    border-right: 8px solid transparent;
     border-bottom: 5px solid #444;
-    border-top: 5px solid transparent;
+    border-top: 0px solid transparent;
 }
 
-.menu ul li:first-child a:hover:after
+nav ul ul li:first-child a:hover:after
 {
     border-bottom-color: #04acec;
 }
 
-.menu ul li:last-child a
+nav ul ul li:last-child a
 {
     -webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
@@ -147,7 +146,7 @@
 }
 
 /* Clear floated elements */
-.menu:after
+nav ul:after
 {
         visibility: hidden;
         display: block;
