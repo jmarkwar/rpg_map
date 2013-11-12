@@ -11,7 +11,7 @@
     border: 2px inset; 
     background-color: white; 
     padding:1px; 
-    margin: none;
+    margin: 0;
 }
 
 .LogMessages div

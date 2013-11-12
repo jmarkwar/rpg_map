@@ -6,17 +6,8 @@ nav ul
         padding: 10px 0 0 0;
         list-style: none;
         background: #111;
-        background: -moz-linear-gradient(#444, #111);
-        background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #111),color-stop(1, #444));
-        background: -webkit-linear-gradient(#444, #111);
-        background: -o-linear-gradient(#444, #111);
-        background: -ms-linear-gradient(#444, #111);
         background: linear-gradient(#444, #111);
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
         border-radius: 10px;
-        -moz-box-shadow: 0 2px 1px #9c9c9c;
-        -webkit-box-shadow: 0 2px 1px #9c9c9c;
         box-shadow: 0 2px 1px #9c9c9c; 
 }
 
@@ -59,17 +50,10 @@ nav ul ul
     display: none;
     position: absolute;
     top: 35px;
-    left: 0px;
+    left: 0;
     z-index: 99999;
     background: #444;
-    background: -moz-linear-gradient(#444, #111);
-    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #111),color-stop(1, #444));
-    background: -webkit-linear-gradient(#444, #111);
-    background: -o-linear-gradient(#444, #111);
-    background: -ms-linear-gradient(#444, #111);
     background: linear-gradient(#444, #111);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
 }
 
@@ -79,15 +63,12 @@ nav ul ul li
     margin: 0;
     padding: 0;
     display: block;
-    -moz-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
-    -webkit-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
     box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
 }
 
 nav ul ul li:last-child
 {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
+
     box-shadow: none;
 }
 
@@ -104,18 +85,11 @@ nav ul ul a
 nav ul ul a:hover
 {
     background: #0186ba;
-    background: -moz-linear-gradient(#04acec,  #0186ba);
-    background: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
-    background: -webkit-linear-gradient(#04acec,  #0186ba);
-    background: -o-linear-gradient(#04acec,  #0186ba);
-    background: -ms-linear-gradient(#04acec,  #0186ba);
     background: linear-gradient(#04acec,  #0186ba);
 }
 
 nav ul ul li:first-child a
 {
-    -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
 }
 
@@ -130,7 +104,7 @@ nav ul ul li:first-child a:after
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 5px solid #444;
-    border-top: 0px solid transparent;
+    border-top: 0 solid transparent;
 }
 
 nav ul ul li:first-child a:hover:after
@@ -140,8 +114,6 @@ nav ul ul li:first-child a:hover:after
 
 nav ul ul li:last-child a
 {
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
 }
 

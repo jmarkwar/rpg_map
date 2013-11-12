@@ -105,7 +105,7 @@ function ChatClient(player) {
     self._channels = [];
     self._windows = {};
     self._socket = io.connect('http://freezing-light-6313.herokuapp.com/');
-    //self._socket = io.connect('http://rpg_map.jmarkwar.c9.io');
+    //self._socket = io.connect('https://rpg_map_github-c9-jmarkwar.c9.io/');
     
     //events recieved
     self._socket.on('NewPlayer',function(player) {
